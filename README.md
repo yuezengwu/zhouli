@@ -45,47 +45,20 @@
 
 ## 安装
 
-### 方式一：使用 Claude Code CLI（推荐）
+一行命令，即装即用：
 
 ```bash
-claude plugins install --dir /path/to/zhouli
+claude plugins marketplace add yuezengwu/zhouli && claude plugins install zhouli@zhouli
 ```
 
-### 方式二：手动安装
+重启 Claude Code 会话即可生效。
 
-1. 克隆仓库：
+### 卸载
 
 ```bash
-git clone https://github.com/yuezengwu/zhouli.git
+claude plugins uninstall zhouli@zhouli
+claude plugins marketplace remove zhouli
 ```
-
-2. 在 `~/.claude/settings.json` 中启用插件：
-
-```json
-{
-  "enabledPlugins": {
-    "zhouli@local": true
-  }
-}
-```
-
-3. 在 `~/.claude/plugins/installed_plugins.json` 中注册：
-
-```json
-{
-  "plugins": {
-    "zhouli@local": [
-      {
-        "scope": "user",
-        "installPath": "/path/to/zhouli",
-        "version": "1.0.0"
-      }
-    ]
-  }
-}
-```
-
-4. 重启 Claude Code 会话即可生效。
 
 ## 判定标准
 
@@ -118,11 +91,15 @@ git clone https://github.com/yuezengwu/zhouli.git
 ```
 zhouli/
 ├── .claude-plugin/
-│   └── plugin.json          # 插件清单
-├── hooks/
-│   └── hooks.json           # Hook 配置
-├── hooks-handlers/
-│   └── session-start.sh     # 六官审视指令注入
+│   └── marketplace.json         # Marketplace 清单
+├── plugins/
+│   └── zhouli/
+│       ├── .claude-plugin/
+│       │   └── plugin.json      # 插件清单
+│       ├── hooks/
+│       │   └── hooks.json       # Hook 配置
+│       └── hooks-handlers/
+│           └── session-start.sh # 六官审视指令注入
 ├── LICENSE
 └── README.md
 ```

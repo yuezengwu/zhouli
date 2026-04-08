@@ -1,0 +1,14 @@
+{
+  "name": "zhouli",
+  "owner": {
+    "name": "YueZengwu"
+  },
+  "plugins": [
+    {
+      "name": "zhouli",
+      "description": "以《周礼》六官之道审视每一次代码操作 — Judge every code operation by the Six Ministries of Zhou Li",
+      "source": "./plugins/zhouli",
+      "category": "development"
+    }
+  ]
+}
